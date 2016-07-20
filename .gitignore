@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # Created by https://www.gitignore.io/api/android
 
 ### Android ###
+=======
+>>>>>>> d21e3182702e2630c5586d347b6cb6a11562ba79
 # Built application files
 *.apk
 *.ap_
@@ -38,6 +41,7 @@ captures/
 # Intellij
 *.iml
 .idea/workspace.xml
+<<<<<<< HEAD
 .idea/libraries
 .idea/gradle.xml
 
@@ -47,3 +51,8 @@ captures/
 ### Android Patch ###
 gen-external-apklibs
 
+=======
+
+# Keystore files
+*.jks
+>>>>>>> d21e3182702e2630c5586d347b6cb6a11562ba79
