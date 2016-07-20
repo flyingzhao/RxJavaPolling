@@ -17,7 +17,7 @@ import rx.Observable;
 public class QueryUserInfo {
     public interface QueryUserService {
         @GET("EntranceGuardes/app/appOpen_queryCustomer.action")
-        Observable<UserJsonResult> upload(@Query("floor") String floor,
+        Observable<UserJsonResult> query(@Query("floor") String floor,
                                           @Query("house") String house);
     }
 
@@ -38,7 +38,7 @@ public class QueryUserInfo {
                 .build();
         QueryUserService service = retrofit.create(QueryUserService.class);
 
-        return service.upload(floor, house)
+        return service.query(floor, house)
                 .doOnNext(userJsonResult -> {
                     List<UserJsonResult.user> l = userJsonResult.getList();
                     for (UserJsonResult.user u : l) {

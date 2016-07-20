@@ -10,6 +10,7 @@ new QueryUserInfo("22", "502").startQuery()
                 .subscribe(pollingJsonResult ->  Log.d("polling result", pollingJsonResult.getMessage()));
 ```
 ####流程图（GitHub无法显示）
+查询userId->上传图片->轮询服务器</br>
 ```flow
 st=>start: 开始
 e=>end: 结束
