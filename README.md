@@ -1,5 +1,7 @@
-#Ê¹ÓÃRetrofitºÍRxJava½øĞĞÂÖÑ¯²Ù×÷
-###Á÷³Ì
+# ä½¿ç”¨Retrofitå’ŒRxJavaè¿›è¡Œè½®è¯¢æ“ä½œ
+
+### æµç¨‹
+
 ```
 new QueryUserInfo("22", "502").startQuery()
                 .subscribeOn(Schedulers.io())
@@ -9,21 +11,27 @@ new QueryUserInfo("22", "502").startQuery()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(pollingJsonResult ->  Log.d("polling result", pollingJsonResult.getMessage()));
 ```
-####Á÷³ÌÍ¼£¨GitHubÎŞ·¨ÏÔÊ¾£©
-²éÑ¯userId->ÉÏ´«Í¼Æ¬->ÂÖÑ¯·şÎñÆ÷</br>
+
+#### æµç¨‹å›¾ï¼ˆGitHubæ— æ³•æ˜¾ç¤ºï¼‰
+
+æŸ¥è¯¢userId->ä¸Šä¼ å›¾ç‰‡->è½®è¯¢æœåŠ¡å™¨</br>
+
 ```flow
-st=>start: ¿ªÊ¼
-e=>end: ½áÊø
-op1=>operation: ²éÑ¯userId
-op2=>operation: ÉÏ´«Í¼Æ¬
-cond=>condition: ÉÏ´«³É¹¦?
-op3=>operation: ¿ªÊ¼ÂÖÑ¯
+st=>start: å¼€å§‹
+e=>end: ç»“æŸ
+op1=>operation: æŸ¥è¯¢userId
+op2=>operation: ä¸Šä¼ å›¾ç‰‡
+cond=>condition: ä¸Šä¼ æˆåŠŸ?
+op3=>operation: å¼€å§‹è½®è¯¢
 st->op1->op2->cond->op3->e
 cond(yes)->op3
 cond(no)->e
 ```
-####ÂÖÑ¯
-Ã¿¸ô10ÃëÂÖÑ¯Ò»´Î£¬ÂÖÑ¯5´Î£¬Èç¹û·µ»Ø1»òÕß-1ÔòÍ£Ö¹£¬·ñÔò5´ÎÒÔºóÍ£Ö¹
+
+#### è½®è¯¢
+
+æ¯éš”10ç§’è½®è¯¢ä¸€æ¬¡ï¼Œè½®è¯¢5æ¬¡ï¼Œå¦‚æœè¿”å›1æˆ–è€…-1åˆ™åœæ­¢ï¼Œå¦åˆ™5æ¬¡ä»¥ååœæ­¢
+
 ```
 Observable.interval(10, TimeUnit.SECONDS)
                 .take(5)
@@ -31,14 +39,16 @@ Observable.interval(10, TimeUnit.SECONDS)
                 .flatMap(aLong -> service.polling(userId))
                 .takeUntil(pollingJsonResult -> pollingJsonResult.getResult().equals("1") || pollingJsonResult.getResult().equals("-1"));
 ```
-###½á¹û
+
+### ç»“æœ
+
 userId: 1218</br>
 userId: 1244</br>
-upload image: ·¢ËÍ³É¹¦!</br>
+upload image: å‘é€æˆåŠŸ!</br>
 Polling: start polling</br>
-polling result: Ö÷ÈËºÜÃ¦£¬ÇëµÈ´ı¡£¡£¡£¡££¡</br>
-polling result: Ö÷ÈËºÜÃ¦£¬ÇëµÈ´ı¡£¡£¡£¡££¡</br>
-polling result: Ö÷ÈËºÜÃ¦£¬ÇëµÈ´ı¡£¡£¡£¡££¡</br>
-polling result: Ö÷ÈËºÜÃ¦£¬ÇëµÈ´ı¡£¡£¡£¡££¡</br>
-polling result: Ö÷ÈËºÜÃ¦£¬ÇëµÈ´ı¡£¡£¡£¡££¡</br>
+polling result: ä¸»äººå¾ˆå¿™ï¼Œè¯·ç­‰å¾…ã€‚ã€‚ã€‚ã€‚ï¼</br>
+polling result: ä¸»äººå¾ˆå¿™ï¼Œè¯·ç­‰å¾…ã€‚ã€‚ã€‚ã€‚ï¼</br>
+polling result: ä¸»äººå¾ˆå¿™ï¼Œè¯·ç­‰å¾…ã€‚ã€‚ã€‚ã€‚ï¼</br>
+polling result: ä¸»äººå¾ˆå¿™ï¼Œè¯·ç­‰å¾…ã€‚ã€‚ã€‚ã€‚ï¼</br>
+polling result: ä¸»äººå¾ˆå¿™ï¼Œè¯·ç­‰å¾…ã€‚ã€‚ã€‚ã€‚ï¼</br>
 
